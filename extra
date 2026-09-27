@@ -1,4 +1,3 @@
-required commands(source builders)
 
 gcc -o gr3yenv main.c core.c menu.c -lncurses
 ./gr3yenv
