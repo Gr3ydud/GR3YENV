@@ -13,7 +13,7 @@
  * and changed independently.
  */
 typedef struct {
-    const char *name;         /* short identifier, mainly for debug logging */
+    const char *name;         /* short identifier, mainly for debug or logging */
     void (*on_enter)(void);   /* called once when this screen becomes active */
     void (*on_draw)(void);    /* called every frame to redraw this screen */
     bool (*on_input)(int ch); /* called with a keypress; return false to
@@ -30,7 +30,7 @@ void core_shutdown(void);
 
 /* Pushes a new screen onto the active stack and runs it until it
  * requests to exit (on_input returns false) or the whole program
- * is told to quit via core_request_quit(). */
+ * is told to quit with core_request_quit(). */
 void core_run(gr3y_screen_t *screen);
 
 /* Signals the main loop to stop after the current iteration.
