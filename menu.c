@@ -7,9 +7,9 @@
 /*
  * Each entry has a label (what's shown in brackets) and an action
  * function, called when the user presses Enter on it. For now these
- * actions are placeholders -- once launcher/filemgr/settings/debug
+ * actions are placeholders, once launcher, filemgr, settings, debug
  * exist, swap the placeholder bodies for real calls into those
- * modules (e.g. launcher_open_shell(), filemgr_get_screen(), etc).
+ * modules (launcher_open_settings(), filemgr_get_screen(), etc).
  */
 typedef struct {
     const char *label;
