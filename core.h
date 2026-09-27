@@ -13,19 +13,19 @@
  * and changed independently.
  */
 typedef struct {
-    const char *name;         /* short identifier, mainly for debug/logging */
+    const char *name;         /* short identifier, mainly for debug logging */
     void (*on_enter)(void);   /* called once when this screen becomes active */
     void (*on_draw)(void);    /* called every frame to redraw this screen */
     bool (*on_input)(int ch); /* called with a keypress; return false to
                                   request returning to the previous screen */
 } gr3y_screen_t;
 
-/* Initializes ncurses and any core state. Call once at startup. */
+/* Initializes ncurses, any core state, and call once at startup. */
 void core_init(void);
 
-/* Tears down ncurses cleanly. Call once before exit, and on any
- * fatal error path -- never let the program exit with ncurses
- * still active, or the terminal will be left in a broken state. */
+/* Tears down ncurses cleanly, call once before exit, and on any
+ * fatal error path, never let the program exit with ncurses
+ * still active, or the terminal will be left broken. */
 void core_shutdown(void);
 
 /* Pushes a new screen onto the active stack and runs it until it
