@@ -2,25 +2,25 @@
 #include <string.h>
 #include "core.h"
 #include "menu.h"
+#include "launcher.h"
 
 /*
- * Each entry has a label shown in brackets and an action
- * function, that is called when the user presses Enter on it. For now these
- * actions are placeholders, once launcher/filemgr/settings/debug
- * exist, i will swap the placeholder bodies for real calls into those
- * modules (launcher_open_shell(), filemgr_get_screen(), etc). 
- * TBD.
+ * Each entry has a label (what's shown in brackets) and an action
+ * function, called when the user presses Enter on it. For now these
+ * actions are placeholders -- once launcher/filemgr/settings/debug
+ * exist, swap the placeholder bodies for real calls into those
+ * modules (e.g. launcher_open_shell(), filemgr_get_screen(), etc).
  */
 typedef struct {
     const char *label;
     void (*action)(void);
 } menu_entry_t;
 
-static void action_filemgr(void)  { /* TODO launcher -> filemgr_get_screen() */ }
-static void action_terminal(void) { /* TODO launcher -> drop to real shell */ }
-static void action_apps(void)     { /* TODO launcher -> applications list */ }
-static void action_settings(void) { /* TODO launcher -> settings_get_screen() */ }
-static void action_debug(void)    { /* TODO launcher -> debug_get_screen() */ }
+static void action_filemgr(void)  { /* TODO: launcher -> filemgr_get_screen() */ }
+static void action_terminal(void) { launcher_open_shell(); }
+static void action_apps(void)     { /* TODO: launcher -> applications list */ }
+static void action_settings(void) { /* TODO: launcher -> settings_get_screen() */ }
+static void action_debug(void)    { /* TODO: launcher -> debug_get_screen() */ }
 
 static menu_entry_t g_entries[] = {
     { "FILEMGR",     action_filemgr  },
@@ -43,7 +43,6 @@ static void menu_on_draw(void)
 {
     clear();
 
-/* aesthetic header, can easily be modified. */
     mvprintw(0, 0, "GR3YOS \"Cerium\"");
 
     for (int i = 0; i < ENTRY_COUNT; i++) {
@@ -85,7 +84,7 @@ static bool menu_on_input(int ch)
             break;
     }
 
-    return true; /* menu never exits on its own with on_input's return value;
+    return true; /* menu never exits on its own via on_input's return value;
                     quitting the whole program goes through core_request_quit() */
 }
 
