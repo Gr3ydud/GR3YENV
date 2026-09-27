@@ -3,7 +3,7 @@
 #include "core.h"
 #include "menu.h"
 #include "launcher.h"
-
+#include "filemgr.h"
 /*
  * Each entry has a label (what's shown in brackets) and an action
  * function, called when the user presses Enter on it. For now these
@@ -16,7 +16,7 @@ typedef struct {
     void (*action)(void);
 } menu_entry_t;
 
-static void action_filemgr(void)  { /* TODO: launcher -> filemgr_get_screen() */ }
+static void action_filemgr(void)  { core_run(filemgr_get_screen()); }
 static void action_terminal(void) { launcher_open_shell(); }
 static void action_apps(void)     { /* TODO: launcher -> applications list */ }
 static void action_settings(void) { /* TODO: launcher -> settings_get_screen() */ }
