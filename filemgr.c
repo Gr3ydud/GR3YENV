@@ -100,7 +100,7 @@ static void filemgr_on_draw(void)
         row++;
     }
 
-    mvprintw(row + 1, 0, "Enter: open dir   Backspace: up / exit   q: quit gr3yOS");
+    mvprintw(row + 1, 0, "Enter: Open DIR   Backspace: Up / Exit   q: Quit ");
     refresh();
 }
 
