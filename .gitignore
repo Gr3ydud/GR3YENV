@@ -1,0 +1,15 @@
+*.md
+*.obj
+*.exe
+*.o
+*.out
+*.iso
+*.img
+*.swp
+*.swo
+.vscode/
+Thumbs.db
+.DS_Store
+gr3yos
+gr3yenv
+# -add obj/, build/.
