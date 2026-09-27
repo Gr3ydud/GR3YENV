@@ -1,4 +1,4 @@
 final product of procrastination, 
 gui-tui bridge for my linux distro.
 this is proof of concept. 
-You are free to experiment with it, but it’s unfinished.
+You are free to use it, but it’s unfinished, don't expect perfect function.
